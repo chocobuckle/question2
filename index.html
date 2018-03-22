@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Flexible Grid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class='inner-grid-toggle-wrapper'>
+    <h2>Show Inner Flexible Grid?</h2>
+    <label class='switch'>
+      <input class='checkbox-toggle' type='checkbox'>
+      <span class='slider round'></span>
+    </label>
+  </div>
+  <div class='grid'>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+    <div class='cell'></div>
+  </div>
+<script>
+function createCellsFragment() {
+  const cellsFragment = document.createDocumentFragment();
+  for (let i = 0; i < 4; i++) {
+    const cellDiv = document.createElement('div');
+    cellDiv.setAttribute('class', 'cell');
+    cellsFragment.appendChild(cellDiv);
+  }
+  return cellsFragment;
+}
+
+const checkboxToggle = document.getElementsByClassName('checkbox-toggle')[0];
+
+checkboxToggle.addEventListener('click', (e) => {
+  if (e.target.checked) {
+    const cells = Array.from(document.getElementsByClassName('cell'));
+    cells.forEach((cell) => {
+      cell.appendChild(createCellsFragment());
+    });
+  } else if (!e.target.checked) {
+    const grid = document.getElementsByClassName('grid')[0];
+    grid.innerHTML = '';
+    grid.appendChild(createCellsFragment());
+  }
+});
+</script>
+</body>
+</html>
