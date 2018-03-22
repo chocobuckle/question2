@@ -4,10 +4,10 @@
 
 body,
 html {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0.3em;
+  width: 100%;
 }
 
 .grid {
@@ -20,8 +20,8 @@ html {
 .cell {
   background: red;
   border: 1px solid #000;
-  width: 100%;
   height: 25%;
+  width: 100%;
 }
 
 .cell:nth-child(2),
@@ -39,9 +39,9 @@ html {
 }
 
 .inner-grid-toggle-wrapper {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 h2 {
@@ -49,14 +49,16 @@ h2 {
 }
 
 .switch {
-  position: relative;
   display: inline-block;
-  min-width: 60px;
   height: 34px;
+  min-width: 60px;
+  position: relative;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+  display:none;
+}
 
 .slider {
   position: absolute;
